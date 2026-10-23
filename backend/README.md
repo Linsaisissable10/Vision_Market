@@ -1,0 +1,3 @@
+# Backend V2 — squelette, pas encore production
+Lancer : installer Node.js LTS, `npm install`, copier `.env.example` en `.env`, puis `npm start`. Tester `http://localhost:8787/health`.
+Ce squelette ne collecte pas encore les actualités, n'appelle pas de fournisseur IA et n'envoie pas de Web Push. `/api/analyze` est volontairement non implémenté. À développer : connecteurs de sources fiables, validation des données, appel IA JSON côté serveur, rate limits, abonnements Web Push/VAPID, stockage et tâche planifiée. Ne jamais publier `.env` ni exposer une clé API dans le navigateur. Les textes de presse doivent être traités comme des données non fiables pour éviter les prompt injections.

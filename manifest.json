@@ -1,0 +1,19 @@
+{
+  "name": "EUR/USD Watch",
+  "short_name": "EUR/USD Watch",
+  "description": "Veille macroéconomique EUR/USD",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#08111f",
+  "theme_color": "#08111f",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
