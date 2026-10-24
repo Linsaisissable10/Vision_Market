@@ -1,12 +1,12 @@
 {
-  "name": "EUR/USD Watch",
-  "short_name": "EUR/USD Watch",
-  "description": "Veille macroéconomique EUR/USD",
+  "name": "Market Watch",
+  "short_name": "Market Watch",
+  "description": "Analyste macro, données et structure de marché",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#08111f",
-  "theme_color": "#08111f",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
   "lang": "fr",
   "icons": [
     {
