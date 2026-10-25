@@ -1,9 +1,10 @@
-# Market Watch — Analyste V5
+# Market Watch — Analyste V5.2
 
 ## Ce qui change
 - Interface réorganisée en Vue d'ensemble, Calendrier, Analyste, Data & sources, Contexte & structure, Réglages.
 - Calendrier plus large, filtres d'impact/zone/recherche/période, inspecteur latéral, précédent/consensus/réel/révision si fournis.
 - Moteur analytique spécialisé **local et explicable**, sans API de génération de texte : surprise réel vs consensus, catégorisation de certains indicateurs macro, mapping de la devise publiée à la paire, confluence avec le contexte structurel saisi et signalement des données manquantes/conflits.
+- Parcours événementiel : cliquer sur une publication dans le calendrier ouvre son inspecteur; le bouton « Analyser avec MW » lance ensuite l’analyse. Le formulaire de publication manuelle a été retiré de l’écran Analyste.
 - Aucun événement de démonstration, aucun prix inventé. Si un fournisseur est indisponible, l'interface l'indique.
 - Backend `/api/analyze` utilise aussi des règles et n'appelle pas d'API d'IA externe.
 
@@ -34,3 +35,15 @@ GitHub Pages sert uniquement le frontend. Il ne lance pas Node.js.
 - La saisie de contexte structurel est manuelle et n'est pas une lecture automatique du graphique.
 - Les règles de sémantique ne couvrent pas tous les indicateurs et ne remplacent pas une validation empirique.
 - Aucun prix cible, probabilité prédictive ou amplitude en pips n'est fournie.
+
+
+## Utilisation de l’analyse d’un événement
+1. Ouvrir **Calendrier**.
+2. Cliquer sur la ligne d’une publication. Son inspecteur s’ouvre à droite (ou sous la liste sur mobile).
+3. Vérifier précédent, consensus, réel, source et horodatage.
+4. Cliquer sur **Analyser avec MW →**. L’application ouvre l’espace Analyste et affiche les faits, le biais conditionnel, les scénarios et les données manquantes.
+
+## Héberger le backend (à faire une seule fois)
+Le backend est un serveur Node.js distinct : GitHub Pages ne l’exécute pas. Sur un hébergeur compatible Node.js, créer un nouveau service depuis le dépôt GitHub `Vision_Market`, en indiquant le dossier racine `backend` comme **Root Directory**, la commande de build `npm install` et la commande de démarrage `npm start`. Le service doit fournir une URL HTTPS publique. Ensuite, dans l’application, ouvrir **Réglages**, coller cette URL dans le champ API backend, puis enregistrer. Tester d’abord `/health`, puis `/api/events?days_ahead=7` et `/api/markets`.
+
+Le moteur MW n’appelle aucune API d’IA générative et ne nécessite donc aucune clé OpenAI. Les fournisseurs de données externes peuvent néanmoins appliquer des quotas, retards ou changements d’API. Les cours de matières premières restent indisponibles tant qu’un fournisseur adapté n’est pas connecté.
